@@ -1,30 +1,35 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import SideBar from '../../entities/Layouts/SideBar'
 import SideBarPortal from '../../entities/Layouts/SideBarPortal';
 
-import PortalActions from '../../../redux/sidebarPortal/actions'
+import StyledAuthorizedTemplate from './StyledAutorizedTemplate';
+import navigationActions from "../../../redux/navigation/actions";
 
-class AuthorizedTemplate extends Component {
+function AuthorizedTemplate(props) {
 
-  constructor(props) {
-    super(props)
-    this.state = {}
+  function hideSidebar() {
+    const {isNavigationCollapsed, collapseNavigation, isNavigationWidthFixed} = props;
+
+    if (!isNavigationWidthFixed && !isNavigationCollapsed ) {
+      collapseNavigation(!isNavigationCollapsed);
+    }
   }
 
-  render() {
-    const {isHidden} = this.props;
-
-    return (
-      <div>
-        <SideBar/>
-        <SideBarPortal/>
-        {this.props.children}
+  return (
+    <StyledAuthorizedTemplate isNavigationWidthFixed={props.isNavigationWidthFixed}>
+      <SideBar/>
+      <SideBarPortal/>
+      <div onMouseEnter={hideSidebar} className='main_content_wrapper'>
+        {props.children}
       </div>
-    )
-  }
+    </StyledAuthorizedTemplate>
+  )
 }
 
-export default connect(
-  (store) => ({isHidden: store.sidebarPortal.isHidden})
-)(AuthorizedTemplate)
+export default connect(state => ({
+  isNavigationWidthFixed: state.navigation.isWidthFixed,
+  isNavigationCollapsed: state.navigation.isCollapsed,
+}), {
+  collapseNavigation: navigationActions.collapseNavigation
+})(AuthorizedTemplate)

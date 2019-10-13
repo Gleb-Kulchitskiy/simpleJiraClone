@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Transition} from 'react-transition-group';
+
+import {components as portalComponents} from '../../portalComponents';
+
 import StyledSidebarPortal from './StyledSideBarPortal';
 import {ReactComponent as ArrowLeftBig} from '../../../../icons/svg/arrowLeftBig.svg';
 
@@ -37,12 +40,12 @@ class SideBarPortal extends Component {
   };
 
   render() {
-    const {isHidden} = this.props;
+    const {isHidden, component, width, additionalData} = this.props;
 
     return (
-      <StyledSidebarPortal>
+      <StyledSidebarPortal width={width}>
         <div className='portal_wrapper'>
-          <Transition in={!isHidden}>
+          <Transition in={!isHidden} timeout={0}>
             {state => (
               <div style={{
                 ...this.state.defaultTransitionState.shadow,
@@ -54,7 +57,7 @@ class SideBarPortal extends Component {
               </div>
             )}
           </Transition>
-          <Transition in={!isHidden}>
+          <Transition in={!isHidden} timeout={0}>
             {state => {
               return (
                 <div style={{
@@ -68,7 +71,7 @@ class SideBarPortal extends Component {
                       </button>
                     </div>
                     <div className='right_portal_bar'>
-                      serfserf
+                      {portalComponents[component] && portalComponents[component].render(additionalData)}
                     </div>
                   </div>
                 </div>
@@ -82,5 +85,10 @@ class SideBarPortal extends Component {
   }
 }
 
-export default connect(({sidebarPortal}) => ({isHidden: sidebarPortal.isHidden}),
+export default connect(({sidebarPortal}) => ({
+    isHidden: sidebarPortal.isHidden,
+    component: sidebarPortal.component,
+    width: sidebarPortal.width,
+    additionalData: sidebarPortal.additionalData
+  }),
   {hideSidebarPortal: sidebarPortalActions.hidePortal})(SideBarPortal)

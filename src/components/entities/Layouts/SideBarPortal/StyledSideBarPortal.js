@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
 export default styled.div`
-
- 
   .background_wrapper{
-    //transition: opacity 220ms cubic-bezier(0.2, 0, 0, 1);
-    //opacity: 1;
     position: fixed;
     z-index: 500;
     width:100vw;
     height: 100vh;
-  //  transform:translateY(-50%);
-    
+
     .background_shadow{
       bottom: 0;
       left:0;
@@ -22,7 +17,6 @@ export default styled.div`
       top:0;
       z-index: 500;
       background: rgba(9,30,66,0.54);
-      //transition: opacity 220ms ease 0s;
     }
   }
 
@@ -31,7 +25,7 @@ export default styled.div`
 .container{
    
     position: absolute;
-    width: 600px;
+    width: ${props=> props.width};
     height: 100vh;
     z-index: 501;
     
@@ -46,11 +40,7 @@ export default styled.div`
       z-index: 501;
       overflow: hidden;
       background-color: rgb(255, 255, 255);
-     /* transition:1s;
-      transform:translateX(0%);*/
-      
-      //transition: transform 1220ms cubic-bezier(0.2, 0, 0, 1) 0s, width 220ms cubic-bezier(0.2, 0, 0, 1) 0s;
-     
+  
       .left_portal_bar{
         padding:24px 0 16px 0;
         display: flex;
@@ -60,6 +50,7 @@ export default styled.div`
         height: 100vh;
         width: 64px;
         color: rgb(66,82, 110);
+        z-index: 1;
         
         .portal_button{
           display: flex;
@@ -92,8 +83,8 @@ export default styled.div`
       }
       
       .right_portal_bar{
-      width:100%
-       text-align: right;
+        width:100%;
+        
       }
     }
   }

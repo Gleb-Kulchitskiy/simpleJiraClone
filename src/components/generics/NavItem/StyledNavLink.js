@@ -10,13 +10,12 @@ export default styled.div`
     height: 40px;
     padding: 0 12px 0 12px;
     cursor:pointer;
-    
     border-radius: 2px;
-    
     text-decoration: none;
+    background-color: ${props=>props.isActive? 'rgb(5, 54, 127)':'inherit'};
     
     &:hover{
-      background-color: #3b73af;
+      background-color:${props=>props.isActive? '':'#3b73af'};
     }
     
     .icon_wrapper{
@@ -35,6 +34,7 @@ export default styled.div`
       white-space: nowrap;
       line-height: 1.1428;
       color: #DEEBFF;
+      height: 15px;
     }
   }
 `;

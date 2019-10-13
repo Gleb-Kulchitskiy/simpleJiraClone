@@ -8,13 +8,24 @@ export default styled.div`
   left:0;
   top:0;
   
-  &:hover{
-    #resize_button{
-      opacity: 1;
-    }
+  .main_content{
+    will-change: padding-left;
+    padding-left: 240px;
+    transition: padding-left 300ms cubic-bezier(0.2, 0, 0, 1) 0s;
+    margin-left: 64px;
+    margin-top: 0px;
+    width: 0px;
+    flex: 1 1 auto;
   }
+
   
   .navigation{
+    display:flex;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .navigation_wrapper{
     display:flex;
     height: 100%;
     overflow: hidden;
@@ -73,15 +84,15 @@ export default styled.div`
       
       .resize_button{
         box-shadow: rgba(9, 30, 66, 0.08) 0px 0px 0px 1px, rgba(9, 30, 66, 0.08) 0px 2px 4px 1px;
-       color:inherit;
+        color:${props=>props.isCollapsed? '#FFFFFF':'inherit'};
         cursor: pointer;
         height: 24px;
-        opacity: 0;
+        opacity: ${props => props.showCollapseButton ? 0.9 : 0};
         position: absolute;
         top: 32px;
         transform: translate(-50%);
         width: 24px;
-        background: 0px center white;
+        background: ${props=> props.isCollapsed ? '0px center rgb(76, 154, 255)': '0px center white'};
         border-width: 0px;
         border-style: initial;
         border-color: initial;
@@ -91,22 +102,46 @@ export default styled.div`
         padding: 0px;
         transition: background-color 100ms linear 0s, color 100ms linear 0s, opacity 300ms cubic-bezier(0.2, 0, 0, 1) 0s, transform 300ms cubic-bezier(0.2, 0, 0, 1) 0s;
         
+        &:hover{
+         color:#FFFFFF;
+         background: 0px center rgb(76, 154, 255);
+       }
+        
         .cursor_box{
           position: absolute;
           left:-8px;
           right: -12px;
           top: -8px;
           bottom: -8px;
-          
-          .svg_wrapper{
-            color: currentColor;
-            display: inline-block;
-            fill: rgba(255,255,255);
-            flex-shrink: 0;
-            line-height: 1;
-          }
         }
       }
+    }
+    .tooltip{
+      display: flex;
+      align-items: center;
+      padding: 2px 5px 2px 7px;
+      letter-spacing: 0.4px;
+      font-size: 12px;
+      color: #ffffff;
+      background-color: rgba(5,6,36,0.88);
+      opacity: 0.9;
+      border-radius: 3px;
+      text-align: center;
+      &::after{
+        border:none;
+      }
+      &>span{
+        display:flex;
+      }
+    }
+    .hot_key{
+      font-size: 13px;
+      padding: 1px 7px;
+      margin:2px 0;
+      margin-left:5px;
+      margin-right: 1px;
+      border-radius: 2px;
+      background-color: rgba(89,88,104,0.99);
     }
   }
 `;

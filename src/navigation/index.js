@@ -1,61 +1,124 @@
+import React from 'react';
 import ICONS from "../constants/icons";
 import SIDEBAR_ACTIONS from '../redux/sidebarPortal/actions';
+import PORTAL_COMPONENTS from '../components/entities/portalComponents';
 
-export const ROUTES = [
+import UserWork from '../components/entities/mainComponents/UserWors';
+import Projects from '../components/entities/mainComponents/Projects';
+import Dashboard from '../components/entities/mainComponents/Dashboard';
+import IssueAndFilters from '../components/entities/mainComponents/IssueEndFilters';
+import People from '../components/entities/mainComponents/People';
+import Settings from '../components/entities/mainComponents/Settings';
+
+export const ROUTES = {
+  USER_WORK: '/your_work',
+  PROJECTS: '/projects',
+  DASHBOARD: '/dashboard',
+  PEOPLE: '/people',
+  ISSUE_AND_FILTERS: '/issueandfilters',
+  SETTINGS: '/settings'
+};
+
+export const routes = [
   {
-    MAIN: '/',
+    path: ROUTES.USER_WORK,
+    component: props => <UserWork {...props}/>
+  },
+  {
+    path: ROUTES.PROJECTS,
+    component: props => <Projects {...props}/>
+  },{
+    path: ROUTES.DASHBOARD,
+    component: props => <Dashboard {...props}/>
+  },
+  {
+    path: ROUTES.ISSUE_AND_FILTERS,
+    component: props => <IssueAndFilters {...props}/>
+  },
+  {
+    path: ROUTES.PEOPLE,
+    component: props => <People {...props}/>
+  },
+  {
+    path: ROUTES.SETTINGS,
+    component: props => <Settings {...props}/>
   }
+
 ];
 
-const topIcons = [ICONS.LOGO, ICONS.STAR, ICONS.SEARCH, ICONS.PLUS];
-
-export const PORTAL_NAVIGATION = {
-  KIRA_SOFTWARE: {
+export const portalNavigationTop = {
+  kiraSoftware: {
     icon: ICONS.LOGO,
+    toolTipTex: 'Kira Software',
   },
-  STARRED_AND_RECENT: {
+  starredAndRecent: {
     icon: ICONS.STAR,
     action: SIDEBAR_ACTIONS.SHOW_PORTAL,
-
+    component: PORTAL_COMPONENTS.STARRED_AND_RECENT,
+    toolTipTex: 'Starred and Recent',
+    hotKey: `\\`
   },
-  SEARCH: {
-    icon: ICONS.SEARCH
+  search: {
+    icon: ICONS.SEARCH,
+    toolTipTex: 'Search',
+    hotKey: `/`
   },
-  CREATE: {
-    icon: ICONS.PLUS
+  create: {
+    icon: ICONS.PLUS,
+    toolTipTex: 'Create',
+    hotKey: `c`
   }
 
 };
 
-export const NAVIGATION = {
-  YOUR_WORK: {
+export const portalNavigationBottom = {
+  notification: {
+    icon: ICONS.BELL,
+    toolTipTex: 'Notification',
+  },
+  switchItem: {
+    icon: ICONS.SQUARE,
+    toolTipTex: 'Switch to...',
+  },
+  help: {
+    icon: ICONS.QUESTION,
+    toolTipTex: 'Help',
+  },
+  settings: {
+    icon: ICONS.GEAR,
+    toolTipTex: 'Settings',
+  }
+};
+
+export const navigation = {
+  yourWork: {
     icon: ICONS.YOUR_WORK,
-    to: '/',
+    to: ROUTES.USER_WORK,
     title: 'Your work',
   },
-  PROJECTS: {
+  projects: {
     icon: ICONS.PROJECTS,
-    to: '/',
+    to: ROUTES.PROJECTS,
     title: 'Projects',
   },
-  DASHBOARD: {
+  dashboard: {
     icon: ICONS.DASHBOARD,
-    to: '/',
+    to: ROUTES.DASHBOARD,
     title: 'Dashboards',
   },
-  ISSUE: {
+  people: {
+    icon: ICONS.PEOPLE,
+    to: ROUTES.PEOPLE,
+    title: 'People',
+  },
+  issue: {
     icon: ICONS.ISSUE,
-    to: '/',
+    to: ROUTES.ISSUE_AND_FILTERS,
     title: 'Issues and filters',
   },
-  PROJECTS_TREE: {
-    icon: ICONS.PROJECT_TREE,
-    to: '/',
-    title: 'Project Tree',
-  },
-  SETTINGS: {
+  settings: {
     icon: ICONS.GEAR,
-    to: '/',
+    to: ROUTES.SETTINGS,
     title: 'Kira Settings',
   },
 };

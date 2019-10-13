@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Switch} from 'react-router-dom';
-import {AuthorizedRoutes} from './components';
+import {BrowserRouter as Router} from 'react-router-dom';
+import AuthorizedRoutes from './components';
 
 import store from './redux'
 
@@ -12,9 +12,7 @@ function App() {
     <span className="App">
       <Provider store={store}>
         <Router>
-          <Switch>
-            <AuthorizedRoutes/>
-          </Switch>
+          <AuthorizedRoutes/>
         </Router>
       </Provider>
     </span>

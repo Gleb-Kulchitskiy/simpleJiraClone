@@ -1,13 +1,15 @@
 import React from 'react';
+import {withRouter} from "react-router-dom"
 import StyledRightSideBar from './StyledRightSideBar';
 import {default as TextLogo} from '../../../../generics/Logo'
 import NavItem from '../../../../generics/NavItem';
-import {NAVIGATION} from '../../../../../navigation';
+import {navigation} from '../../../../../navigation';
 
+function RightSideBar(props) {
+  const {isCollapsed, location} = props;
 
-export default (props) => {
   return (
-    <StyledRightSideBar>
+    <StyledRightSideBar isCollapsed={isCollapsed}>
       <div className='right_side-bar_wrapper'>
         <div className='side-bar_wrapper'>
           <TextLogo/>
@@ -15,8 +17,8 @@ export default (props) => {
             <div className='dividing_line'>
               <div className={'dividing_line_pre'}>
                 <nav className='nav_wrapper'>
-                  {Object.values(NAVIGATION).map(item => (
-                    <NavItem key={item.title} {...item}/>
+                  {Object.values(navigation).map(item => (
+                    <NavItem key={item.title} isActive={location.pathname === item.to} {...item}/>
                   ))}
                 </nav>
               </div>
@@ -24,8 +26,8 @@ export default (props) => {
           </div>
         </div>
       </div>
-
     </StyledRightSideBar>
   )
-
 }
+
+export default withRouter(RightSideBar)

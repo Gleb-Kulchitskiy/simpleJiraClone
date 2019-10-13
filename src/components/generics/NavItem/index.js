@@ -4,8 +4,7 @@ import StyledNavLink from './StyledNavLink';
 
 export default (props) => {
   const Icon = props.icon.icon;
-
-  return <StyledNavLink>
+  return <StyledNavLink isActive={props.isActive}>
     <Link className='link_wrapper' to={props.to}>
       <span className='icon_wrapper'>
         <Icon/>

@@ -11,6 +11,7 @@ import {ReactComponent as Projects} from '../icons/svg/project.svg';
 import {ReactComponent as Dashboard} from '../icons/svg/dathboard.svg';
 import {ReactComponent as Issue} from '../icons/svg/issue.svg';
 import {ReactComponent as ProjectTree} from '../icons/svg/projectTree.svg';
+import {ReactComponent as People} from '../icons/svg/people.svg';
 
 const ICONS = {
   LOGO: {icon: Logo, alt: 'logo', size: '32'},
@@ -25,7 +26,8 @@ const ICONS = {
   PROJECTS: {icon: Projects, alt: 'projects', size: '24'},
   DASHBOARD: {icon: Dashboard, alt: 'dashboard', size: '24'},
   ISSUE: {icon: Issue, alt: 'issue', size: '24'},
-  PROJECT_TREE: {icon: ProjectTree, alt: 'project tree', size: '24'}
+  PROJECT_TREE: {icon: ProjectTree, alt: 'project tree', size: '24'},
+  PEOPLE: {icon: People, alt: 'people', size: '24'}
 };
 
 export default ICONS

@@ -1,12 +1,23 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import AuthorizedTemplate from './templates/AuthorizedTemplate';
-import {ROUTES} from '../navigation';
+import {routes, ROUTES} from '../navigation';
 
-export const AuthorizedRoutes = () => (
-  <AuthorizedTemplate>
-    {ROUTES.map(route => (
-      <></>
-    ))}
-  </AuthorizedTemplate>
-);
+
+const AuthorizedRoutes = () => {
+
+  return (
+    <AuthorizedTemplate>
+      <Switch>
+        {routes.map(route => (
+          <Route key={route.path} exact path={route.path} component={route.component}/>
+        ))}
+        <Route exact path='/'>
+          <Redirect to={ROUTES.PROJECTS}/>
+        </Route>
+      </Switch>
+    </AuthorizedTemplate>
+  )
+};
+
+export default AuthorizedRoutes

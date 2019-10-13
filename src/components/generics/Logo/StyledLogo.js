@@ -11,7 +11,7 @@ export default styled.div`
       padding:20px 16px 0 16px;
       
       .inner_layout{
-        padding: 8px 0 26px 16px;
+        padding: 8px 0 23px 16px;
         
         .svg_wrapper{
           position: relative;

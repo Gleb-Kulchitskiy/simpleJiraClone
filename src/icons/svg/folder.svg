@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>classic-project</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Create-dropdown_new" transform="translate(-10.000000, -55.000000)" fill="#B3D4FF">
+            <g id="Group-5">
+                <g id="classic-project" transform="translate(10.000000, 55.000000)">
+                    <path d="M10.0784292,2.68 L21.52,2.68 C22.6245695,2.68 23.52,3.5754305 23.52,4.68 L23.52,17.96 C23.52,19.0645695 22.6245695,19.96 21.52,19.96 L2.48,19.96 C1.3754305,19.96 0.48,19.0645695 0.48,17.96 L0.48,6.68 L0.48,2.76 C0.48,1.6554305 1.3754305,0.76 2.48,0.76 L8.08,0.76 C9.15777652,0.76 10.0364369,1.61251734 10.0784292,2.68 Z"
+                          id="Combined-Shape"></path>
+                    <path d="M0.48,4.6 L23.52,4.6 L23.52,17.96 C23.52,19.0645695 22.6245695,19.96 21.52,19.96 L2.48,19.96 C1.3754305,19.96 0.48,19.0645695 0.48,17.96 L0.48,4.6 Z"
+                          id="Rectangle" style="mix-blend-mode: multiply;"
+                    fill="#AAC0FF"
+                    ></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

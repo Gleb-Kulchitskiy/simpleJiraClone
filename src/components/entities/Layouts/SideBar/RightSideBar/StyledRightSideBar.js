@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
   position:relative;
   
-  width: 240px;
+  width: ${props => props.isCollapsed ? '20px' : '240px'};
   height: 100vh;
   
   transition: width 300ms cubic-bezier(0.2,0,0,1) 0s;
