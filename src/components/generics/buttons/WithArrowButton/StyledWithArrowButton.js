@@ -12,7 +12,7 @@ export default styled.button`
   text-align: center;
   white-space: nowrap;
   line-height: 2.28571em;
-  color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255);
   border-width: 0px;
   text-decoration: none;
   background: rgb(0, 82, 204);
@@ -33,15 +33,24 @@ export default styled.button`
     line-height: 2.28571em;
   }
   
-  ${props=> props.mixin && props.mixin==='naked' && css `
+  ${props => props.mixin && props.mixin === 'naked' && css `
+    padding:0;
     width:100%;
     height: 100%;
     border:none;
+    border-radius: unset;
     color: rgb(0, 82, 204);
     cursor: pointer;
+    background-color: #FFFFFF;
+    box-shadow: ${props => props.isFocused ? '0 0 0 2px #4c9aff' : ''};
+    line-height: 1em;
     
-    &:focus{
-     border-color:rgb(76,154,255);
+    span{
+      line-height: 1em;
+    }
+  
+    &:hover{
+    background-color: #FFFFFF;
     }
 `}
 `;

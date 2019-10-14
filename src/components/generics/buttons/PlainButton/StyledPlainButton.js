@@ -14,7 +14,7 @@ export default styled.button`
   line-height: 2.28571em;
   vertical-align: middle;
   width: auto;
-  color: rgb(80, 95, 121) !important;
+  color: ${props => props.disabled ? 'rgb(165, 173, 186)' : 'rgb(80, 95, 121) !important'};
   border-width: 0px;
   text-decoration: none;
   background: rgba(9, 30, 66, 0.04);
@@ -22,10 +22,10 @@ export default styled.button`
   padding: 0px 8px;
   transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
   outline: none !important;
-  cursor:pointer;
+  cursor:${props=>props.disabled?'not-allowed':'pointer'};
   
   &:hover{
-    background: rgba(9, 30, 66, 0.08);
+    background: ${props => props.disabled ? 'rgba(9, 30, 66, 0.04)' : 'rgba(9, 30, 66, 0.08)'};
   }
   
   span{

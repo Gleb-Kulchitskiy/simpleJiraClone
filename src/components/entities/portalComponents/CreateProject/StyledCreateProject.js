@@ -4,6 +4,7 @@ export default styled.div`
   height: 100vh;
   margin-left:-64px;
   margin-top:23px;
+  overflow-y: auto;
   
   .create_project_container{
     width:100%;
@@ -85,8 +86,59 @@ export default styled.div`
       }
     }
     .advanced_button_container{
+       margin-top:24px;
        width:350px;
        height: 24px;
+    }
+    
+    .advanced_input_container{
+    
+      .advanced_input_label{
+         color: rgb(107, 119, 140);
+         font-size: 12px;
+         font-weight: 600;
+         line-height: 1.33333;
+         padding: 20px 0px 4px;
+       }
+       
+      .advanced_input_wrapper{
+        width:350px;
+        display:flex;
+        align-items: center;
+       
+        .advanced_input{
+           width:210px;
+           height:40px;
+        }
+        
+        .tip_button_wrapper{
+          margin-left: 14px;
+          cursor:pointer;
+          
+          .plain-card_wrapper{
+            position: absolute;
+            top: -71px; 
+            left: 41px;
+          }
+        }
+        
+        .tool_tip_overlap{
+          background-color: #FFFFFF;
+          color:black;
+          padding:0;
+        
+        &:before,:after{
+          content:none;
+        }
+        }
+      }
+    }
+    
+    .create-button_wrapper{
+      margin-top:24px;  
+      width:350px;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 `;
