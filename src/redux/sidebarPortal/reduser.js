@@ -1,4 +1,4 @@
-import PortalActions from './actions';
+import PORTAL_ACTIONS from './actions';
 
 const defaultState = {
   isHidden: true,
@@ -6,18 +6,19 @@ const defaultState = {
 };
 
 export default function (state = defaultState, action) {
+  const {type, payload} = action;
 
-  switch (action.type) {
-    case PortalActions.SHOW_PORTAL: {
+  switch (type) {
+    case PORTAL_ACTIONS.SHOW_PORTAL: {
       return {
         ...state,
         isHidden: false,
-        component: action.payload.component,
-        width: action.payload.width || defaultState.width,
-        additionalData: action.payload.additionalData
+        component: payload.component,
+        width: payload.width || defaultState.width,
+        additionalData: payload.additionalData
       }
     }
-    case PortalActions.HIDE_PORTAL: {
+    case PORTAL_ACTIONS.HIDE_PORTAL: {
       return {...state, isHidden: true, component: false, width: defaultState.width}
     }
     default:

@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withRouter} from "react-router-dom"
+
 import StyledRightSideBar from './StyledRightSideBar';
 import {default as TextLogo} from '../../../../generics/Logo'
 import NavItem from '../../../../generics/NavItem';
@@ -29,5 +31,10 @@ function RightSideBar(props) {
     </StyledRightSideBar>
   )
 }
+
+RightSideBar.propTypes = {
+  isCollapsed: PropTypes.bool,
+  location: PropTypes.object
+};
 
 export default withRouter(RightSideBar)

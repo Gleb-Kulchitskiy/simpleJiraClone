@@ -13,11 +13,11 @@ export default styled.button`
   white-space: nowrap;
   line-height: 2.28571em;
   color: rgb(255, 255, 255);
-  border-width: 0px;
+  border-width: 0;
   text-decoration: none;
   background: rgb(0, 82, 204);
   border-radius: 3px;
-  padding: 0px 8px;
+  padding: 0 8px;
   transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
   outline: none !important;
   

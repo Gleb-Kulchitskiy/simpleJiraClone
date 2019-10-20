@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import ToolTip from '../ToolTip';
 
 import SIDEBAR_ACTIONS from '../../../redux/sidebarPortal/actions';
-import sidebarPortalActions from '../../../redux/sidebarPortal/actions';
+import SIDEBAR_PORTAL_ACTIONS from '../../../redux/sidebarPortal/actions';
+import POPUP_ACTIONS from '../../../redux/popUp/actions';
 
 import StyledIcons from './StyledIcon';
 
@@ -16,7 +17,8 @@ class ActiveIcon extends Component {
     this.state = {
       isMouseInside: false,
       mapActionCreators: {
-        [SIDEBAR_ACTIONS.SHOW_PORTAL]: this.props.showSidebarPortalAC
+        [SIDEBAR_ACTIONS.SHOW_PORTAL]: this.props.showSidebarPortalAC,
+        [POPUP_ACTIONS.SHOW_POPUP]: this.props.showPopupAC,
       }
     };
   }
@@ -38,10 +40,10 @@ class ActiveIcon extends Component {
     const {mapActionCreators} = this.state;
 
     if (action) {
-      return mapActionCreators[action]({component:component});
+      return mapActionCreators[action]({component: component});
     }
     return null
-  }
+  };
 
   render() {
     const {main, styles, toolTipTitle, toolTipHotKey} = this.props;
@@ -65,6 +67,9 @@ class ActiveIcon extends Component {
       </StyledIcons>
     )
   }
-};
+}
 
-export default connect(null, {showSidebarPortalAC: sidebarPortalActions.showPortal})(ActiveIcon)
+export default connect(null, {
+  showSidebarPortalAC: SIDEBAR_PORTAL_ACTIONS.showPortal,
+  showPopupAC: POPUP_ACTIONS.showPopup
+})(ActiveIcon)

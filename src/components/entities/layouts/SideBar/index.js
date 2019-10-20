@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
@@ -89,6 +90,11 @@ class SideBar extends Component {
     )
   }
 }
+
+SideBar.propTypes = {
+  isCollapsed: PropTypes.bool,
+  isWidthFixed: PropTypes.bool
+};
 
 export default connect(state => ({
   isCollapsed: state.navigation.isCollapsed,

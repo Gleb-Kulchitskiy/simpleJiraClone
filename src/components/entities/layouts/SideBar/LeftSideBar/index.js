@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StyledLeftSideBar from './StyledLeftSideBar';
 import ActiveIcon from '../../../../generics/ActiveIcon';
-import {portalNavigationTop,portalNavigationBottom} from '../../../../../navigation'
+import {portalNavigationTop, portalNavigationBottom} from '../../../../../navigation'
 
-export default (props) => {
+function LeftSideBar(props) {
 
   return (
     <StyledLeftSideBar onMouseEnter={props.toggleNavigation('close')}>
@@ -34,5 +35,10 @@ export default (props) => {
       </div>
     </StyledLeftSideBar>
   )
-
 }
+
+LeftSideBar.propTypes={
+  toggleNavigation: PropTypes.func,
+};
+
+export default LeftSideBar;

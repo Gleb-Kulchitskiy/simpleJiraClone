@@ -6,6 +6,7 @@ import PlainInput from '../../../generics/inputs/PlainInput';
 import WithArrowButton from '../../../generics/buttons/WithArrowButton';
 import ImageButton from '../../../generics/buttons/ImageButton';
 import PlainCard from '../../../generics/cards/PlainCard';
+import {stub} from '../../../../helpers/common';
 
 import StyledCreateProject from './StyledCreateProject';
 import {ReactComponent as CanbanSvg} from '../../../../icons/svg/canban.svg'
@@ -60,18 +61,18 @@ class CreateProject extends Component {
             <div className='create_project_title_wrapper'>
               Kanban
             </div>
-            <div className='create_project_content_wrapper'>
+            <span className='create_project_content_wrapper'>
               Monitor work in a continuous flow for agile teams ◦ Suits teams who control work volume from a backlog
-            </div>
+            </span>
             <PlainButton
               title='Change template'
               onClick={() => ({})}
             />
           </div>
           <div className='create-project_wrapper'>
-            <div className='title'>
+            <span className='title'>
               Create Project
-            </div>
+            </span>
             <div className='input_container'>
               <span className='input_title'>name</span>
               <div className='input_wrapper'>
@@ -93,7 +94,7 @@ class CreateProject extends Component {
             </div>
             {showAdvanced && <div className='advanced_input_container'>
               <div className='advanced_input_label'>
-                Key
+                <span>Key</span>
               </div>
               <div className='advanced_input_wrapper'>
                 <div className='advanced_input'>
@@ -107,6 +108,7 @@ class CreateProject extends Component {
                     onClick={() => ({})}
                     render={props => <div className='plain-card_wrapper'>
                       {props.isOpen && <PlainCard
+                        onClick={stub}
                         link='#'
                         text="The project key is used as the prefix of your project's issue keys (e.g. 'TEST-100'). Choose one that is descriptive and easy to type."
                         title='Learn more'

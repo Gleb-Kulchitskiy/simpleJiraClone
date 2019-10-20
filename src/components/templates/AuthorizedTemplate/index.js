@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import SideBar from '../../entities/Layouts/SideBar'
-import SideBarPortal from '../../entities/Layouts/SideBarPortal';
+import SideBar from '../../entities/layouts/SideBar'
+import SideBarPortal from '../../entities/layouts/SideBarPortal';
+import PopUp from '../../entities/layouts/PopUp';
 
 import StyledAuthorizedTemplate from './StyledAutorizedTemplate';
 import navigationActions from "../../../redux/navigation/actions";
@@ -11,7 +12,7 @@ function AuthorizedTemplate(props) {
   function hideSidebar() {
     const {isNavigationCollapsed, collapseNavigation, isNavigationWidthFixed} = props;
 
-    if (!isNavigationWidthFixed && !isNavigationCollapsed ) {
+    if (!isNavigationWidthFixed && !isNavigationCollapsed) {
       collapseNavigation(!isNavigationCollapsed);
     }
   }
@@ -20,7 +21,8 @@ function AuthorizedTemplate(props) {
     <StyledAuthorizedTemplate isNavigationWidthFixed={props.isNavigationWidthFixed}>
       <SideBar/>
       <SideBarPortal/>
-      <div onMouseEnter={hideSidebar} className='main_content_wrapper'>
+      <PopUp/>
+      <div className='main_content_wrapper' onMouseEnter={hideSidebar}>
         {props.children}
       </div>
     </StyledAuthorizedTemplate>
@@ -31,5 +33,5 @@ export default connect(state => ({
   isNavigationWidthFixed: state.navigation.isWidthFixed,
   isNavigationCollapsed: state.navigation.isCollapsed,
 }), {
-  collapseNavigation: navigationActions.collapseNavigation
+  collapseNavigation: navigationActions.collapseNavigation,
 })(AuthorizedTemplate)

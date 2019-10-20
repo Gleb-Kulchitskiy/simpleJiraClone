@@ -48,7 +48,7 @@ class WithArrowButton extends Component {
   };
 
   render() {
-    const {title, render, leftSideArrow, mixin} = this.props;
+    const {title, render, leftSideArrow, mixin,} = this.props;
     const {isOpen, isFocused} = this.state;
 
     const isRenderProps = render && typeof render === 'function';
@@ -67,7 +67,7 @@ class WithArrowButton extends Component {
         onClick={this.onClick}
       >
         {titleAndArrow}
-        {isRenderProps && this.props.render({isOpen})}
+        {isRenderProps && render({isOpen})}
       </StyledWithAwworButton>
     )
   }

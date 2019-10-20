@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
+  cursor:text;
   width:328px;
   padding:16px 24px;
   text-align: left;

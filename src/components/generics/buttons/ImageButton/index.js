@@ -10,12 +10,13 @@ class ImageButton extends Component {
 
     this.state = {
       isOpen: false
-    }
+    };
+    this.buttonRef = React.createRef();
   }
 
-  onButtonClick = () => {
+  onButtonClick = (e) => {
     const {onClick} = this.props;
-
+    console.log('-e222 taget-',e.target)
     this.setState(state => ({
       isOpen: !state.isOpen
     }), () => onClick())
@@ -30,20 +31,20 @@ class ImageButton extends Component {
   }
 
   handleClickOutside = (event) => {
-
     if (this.buttonRef && !this.buttonRef.current.contains(event.target)) {
       this.setState({isOpen: false})
     }
   };
 
   render() {
-    const {onClick, render} = this.props;
+    const {render} = this.props;
     const {isOpen} = this.state;
 
     const isRenderProps = render && typeof render === 'function';
 
     return (
       <StyledImageButton
+        ref={this.buttonRef}
         onClick={this.onButtonClick}
       >
         {this.props.children}

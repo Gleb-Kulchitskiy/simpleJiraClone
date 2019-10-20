@@ -10,13 +10,25 @@ export default styled.div`
   }
   
   .projects_wrapper{
-    margin-top:24px;
+    margin-top:26px;
+    display:flex;
+    flex-direction: column;
+    
+    .title{
+      padding-bottom: 14px;
+      color: rgb(94, 108, 132);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .projects_list_wrapper{
+      display:flex;
+      margin-bottom:32px;
+      z-index:-1;
+    }
   }
   
-  .title{
-    padding-bottom: 12px;
-    color: rgb(94, 108, 132);
-    font-size: 12px;
-    font-weight: 600;
+  .options_wrapper{
+    margin-bottom:16px;
   }
 `;

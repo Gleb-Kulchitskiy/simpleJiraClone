@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Transition} from 'react-transition-group';
 
@@ -84,6 +85,13 @@ class SideBarPortal extends Component {
     )
   }
 }
+
+SideBarPortal.propTypes = {
+  isHidden: PropTypes.bool,
+  component: PropTypes.string,
+  width: PropTypes.string,
+  additionalData: PropTypes.object
+};
 
 export default connect(({sidebarPortal}) => ({
     isHidden: sidebarPortal.isHidden,

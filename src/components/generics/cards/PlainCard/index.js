@@ -5,12 +5,14 @@ import StyledPlainCard from './StyledPlainCard'
 
 function PlainCard(props) {
 
-  const {link, title, text} = props;
+  const {link, title, text, onClick} = props;
 
   return (
-    <StyledPlainCard>
+    <StyledPlainCard
+      onClick={onClick}
+    >
       <div className='text_wrapper'>
-        {text}
+        <span> {text}</span>
       </div>
       <a className='link' href={link}>
         <span className='link_text'>
